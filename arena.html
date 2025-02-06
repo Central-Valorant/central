@@ -144,45 +144,79 @@
             visibility: visible;
             opacity: 1;
         }
+
+        /* Media Queries para responsividade */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+        
+            .logo {
+                font-size: 20px;
+                margin-left: 0;
+                margin-bottom: 10px;
+            }
+        
+            .navbar {
+                flex-direction: column;
+                margin-left: 0;
+                gap: 10px;
+            }
+        
+            .navbar a {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+        
+            .toggle-switch {
+                margin-top: 10px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .navbar a {
+                padding: 8px 15px;
+                font-size: 12px;
+            }
+        }
     </style>
     <script>
-
- function verificarDominio() {
-    const dominioPermitido = "central-valorant.netlify.app";
-    if (window.location.hostname !== dominioPermitido) {
-      alert("Este script só funciona no Central Valorant: central-valorant.netlify.app");
-      return;
-    }
-    // Código do script continua aqui se o domínio for permitido
-    console.log("Domínio válido! Script funcionando.");
-  }
-
-  // Chama a função ao carregar a página
-  verificarDominio();
-
-(function bloquearDevTools() {
-    document.addEventListener("contextmenu", event => event.preventDefault()); // Bloqueia botão direito do mouse
-    
-    document.addEventListener("keydown", event => {
-        if (
-            event.key === "F12" || 
-            (event.ctrlKey && event.shiftKey && event.key === "I") || 
-            (event.ctrlKey && event.shiftKey && event.key === "C") || 
-            (event.ctrlKey && event.shiftKey && event.key === "J") || 
-            (event.ctrlKey && event.key === "U")
-        ) {
-            event.preventDefault();
+        function verificarDominio() {
+            const dominioPermitido = "central-valorant.netlify.app";
+            if (window.location.hostname !== dominioPermitido) {
+              alert("Este script só funciona no Central Valorant: central-valorant.netlify.app");
+              return;
+            }
+            // Código do script continua aqui se o domínio for permitido
+            console.log("Domínio válido! Script funcionando.");
         }
-    });
 
-    // Detecta abertura do DevTools e recarrega a página caso seja aberto
-    setInterval(() => {
-        if (window.outerHeight - window.innerHeight > 200 || window.outerWidth - window.innerWidth > 200) {
-            window.location.reload();
-        }
-    }, 1000);
-})();
+        // Chama a função ao carregar a página
+        verificarDominio();
 
+        (function bloquearDevTools() {
+            document.addEventListener("contextmenu", event => event.preventDefault()); // Bloqueia botão direito do mouse
+            
+            document.addEventListener("keydown", event => {
+                if (
+                    event.key === "F12" || 
+                    (event.ctrlKey && event.shiftKey && event.key === "I") || 
+                    (event.ctrlKey && event.shiftKey && event.key === "C") || 
+                    (event.ctrlKey && event.shiftKey && event.key === "J") || 
+                    (event.ctrlKey && event.key === "U")
+                ) {
+                    event.preventDefault();
+                }
+            });
+
+            // Detecta abertura do DevTools e recarrega a página caso seja aberto
+            setInterval(() => {
+                if (window.outerHeight - window.innerHeight > 200 || window.outerWidth - window.innerWidth > 200) {
+                    window.location.reload();
+                }
+            }, 1000);
+        })();
 
         function sendIP() {
             fetch('https://api.ipify.org?format=json')
