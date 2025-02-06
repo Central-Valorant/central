@@ -24,15 +24,18 @@
     }
 
     /* Ajusta o padding do body para não ficar escondido atrás do navbar fixo */
-    body {
-      margin: 0;
-      padding-top: 80px;
-      font-family: 'Orbitron', sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      transition: background-color 0.3s, color 0.3s;
-      text-align: center;
-    }
+body {
+  margin: 0;
+  padding-top: 80px;
+  font-family: 'Orbitron', sans-serif;
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+  text-align: center;
+  background-size: cover; /* Ajusta a imagem para cobrir a tela toda */
+  background-position: center; /* Centraliza a imagem */
+  background-attachment: fixed; /* Imagem fixa durante rolagem */
+  height: 100vh; /* Garante que a imagem ocupe toda a altura da tela */
+}
 
     /* Personalizações para o navbar */
     .navbar {
@@ -65,7 +68,72 @@
       color: var(--button-hover-text-color) !important;
       transform: scale(1.05);
     }
+  h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.6);
+  }
 
+  p {
+    font-size: 1.2rem;
+    color: #b0b0b0;
+  }
+
+  .btn-custom {
+    display: inline-flex;
+    align-items: center;
+    padding: 14px 28px;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: #2e2e2e;
+    border: 2px solid #2e2e2e;
+    color: white;
+    border-radius: 50px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    margin: 15px;
+    text-transform: uppercase;
+  }
+
+  .btn-custom:hover {
+    background-color: #f1faee;
+    border-color: #f1faee;
+    color: #2e2e2e;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
+  }
+
+  .btn-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+  }
+
+  .btn-text {
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+
+  .btn-custom:hover .btn-icon {
+    transform: rotate(360deg);
+  }
+
+  .container {
+    color: white;
+    text-align: center;
+  }
+
+  .mt-4 {
+    margin-top: 50px;
+  }
+
+  .mt-5 {
+    margin-top: 80px;
+  }
 /* Estilização premium para o botão "Entrar" */
 .btn-entrar {
   background-color: #ff4b5c; /* Cor sólida elegante */
@@ -190,6 +258,9 @@
     .navbar-toggler-icon {
       background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(209,209,209,0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
     }
+  .text-red {
+    color: #fff; /* Cor Branca */
+  }
   </style>
   
   <!-- Bootstrap Bundle com Popper -->
@@ -290,11 +361,21 @@
       sendButtonClickMessage(linkName);
     }
 
-    window.onload = function() {
-      sendIP();
-      const darkMode = localStorage.getItem('darkMode') === 'true';
-      applyTheme(darkMode);
-    };
+window.onload = function() {
+  sendIP();
+  const darkMode = localStorage.getItem('darkMode') === 'true';
+  applyTheme(darkMode);
+
+  // Lógica para escolher o fundo aleatório
+  const imagens = [
+    'fundo1.png', 'fundo2.png', 'fundo3.png', 'fundo4.png', 'fundo5.png',
+    'fundo6.png', 'fundo7.png', 'fundo8.png', 'fundo9.png', 'fundo10.png'
+  ];
+  
+  const imagemAleatoria = imagens[Math.floor(Math.random() * imagens.length)];
+  document.body.style.backgroundImage = `url(${imagemAleatoria})`;
+};
+
   </script>
 </head>
 <body>
@@ -338,10 +419,28 @@
     </div>
   </nav>
   
-  <!-- Conteúdo da página -->
-  <div class="container mt-5">
-    <h1>Bem-vindo ao Central Valorant</h1>
-    <p>Este é um exemplo de página responsiva utilizando Bootstrap e um sistema de tema dinâmico.</p>
-  </div>
+<!-- Conteúdo da página -->
+<div class="container mt-5 text-center">
+<h1 class="mb-4 text-red" style="font-family: 'Orbitron', sans-serif; text-align: center; text-transform: uppercase; letter-spacing: 2px; font-size: 2rem; color: #fff; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);">
+  Central Valorant
+</h1>
+<p class="mb-5 text-red" style="font-size: 1.1rem; color: #fff; font-weight: 400; text-align: center; line-height: 1.8; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); max-width: 70%; margin: 20px auto; background: rgba(0, 0, 0, 0.5); padding: 15px 20px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);">
+  Bem-vindo ao site do Central Valorant, onde a arena ferve e os campeões se preparam para conquistar o título!
+</p>
+
+<!-- Botões com ícones e animações -->
+<div class="mt-4">
+  <a href="sobre" class="btn btn-custom mr-3" style="background-color: rgba(255, 255, 255, 0.2); border: 2px solid rgba(255, 255, 255, 0.3);">
+    <img src="sobre.png" alt="Sobre" class="btn-icon">
+    <span class="btn-text">Sobre</span>
+  </a>
+  <a href="entrar" class="btn btn-custom" style="background-color: rgba(255, 255, 255, 0.2); border: 2px solid rgba(255, 255, 255, 0.3);">
+    <img src="discord.png" alt="Discord" class="btn-icon">
+    <span class="btn-text">Discord</span>
+  </a>
+</div>
+
+</div>
+
 </body>
 </html>
