@@ -149,18 +149,20 @@
 
 function ajustarLayout() {
     let largura = window.innerWidth;
+    let body = document.body;
 
     if (largura < 600) {
-        document.body.style.fontSize = "14px"; // Mobile
+        body.style.cssText = "font-size: 14px; padding: 10px; max-width: 100%;";
     } else if (largura < 1024) {
-        document.body.style.fontSize = "16px"; // Tablet
+        body.style.cssText = "font-size: 16px; padding: 20px; max-width: 90%; margin: auto;";
     } else {
-        document.body.style.fontSize = "18px"; // Desktop
+        body.style.cssText = "font-size: 18px; padding: 30px; max-width: 80%; margin: auto;";
     }
 }
 
 window.addEventListener("resize", ajustarLayout);
-ajustarLayout(); // Executa ao carregar a página
+window.addEventListener("load", ajustarLayout);
+
 
 
  function verificarDominio() {
