@@ -66,6 +66,54 @@
       transform: scale(1.05);
     }
 
+/* Estilização premium para o botão "Entrar" */
+.btn-entrar {
+  background-color: #ff4b5c; /* Cor sólida elegante */
+  color: #fff;
+  font-weight: 600;
+  border: 2px solid transparent; /* Borda invisível para criar o efeito de brilho */
+  border-radius: 30px; /* Bordas arredondadas elegantes */
+  padding: 14px 40px; /* Mais espaçamento interno */
+  font-size: 16px; /* Fonte otimizada */
+  letter-spacing: 1px;
+  text-transform: uppercase; /* Maiúsculas */
+  transition: all 0.3s ease-in-out; /* Transição suave para todos os efeitos */
+  position: relative; /* Necessário para o efeito de brilho */
+  cursor: pointer;
+  outline: none; /* Remove contorno padrão */
+}
+
+.btn-entrar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, #ff4b5c, #e63337);
+  border-radius: 30px;
+  opacity: 0; /* Inicia invisível */
+  transition: all 0.3s ease-in-out; /* Suavizar a transição */
+  z-index: -1; /* Coloca o brilho atrás do botão */
+}
+
+.btn-entrar:hover {
+  background-color: #e63337; /* Escurece a cor ao passar o mouse */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra suave ao passar o mouse */
+}
+
+.btn-entrar:hover::before {
+  opacity: 1; /* Brilho aparece no hover */
+  transform: scale(1.1); /* Efeito de expansão suave */
+}
+
+.btn-entrar:active {
+  background-color: #d1281f; /* Escurece mais ao clicar */
+  transform: scale(0.98); /* Diminui ligeiramente ao clicar */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra reduzida ao clicar */
+}
+
+
     /* Estilização do toggle de tema */
     .toggle-switch {
       position: relative;
@@ -273,7 +321,7 @@
             <a class="nav-link" href="midia" target="_blank" onclick="handleNavClick('midia')">Mídia</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="entrar" target="_blank" onclick="handleNavClick('entrar')">Entrar</a>
+            <a class="nav-link btn-entrar" href="entrar" target="_blank" onclick="handleNavClick('entrar')">Entrar</a>
           </li>
           <!-- Toggle de tema -->
           <li class="nav-item d-flex align-items-center">
