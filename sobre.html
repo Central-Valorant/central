@@ -2,13 +2,13 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Central Valorant</title>
   <link rel="icon" href="valorant.png">
-
+  
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
+  
   <style>
     :root {
       --bg-color: #0a0a0a;
@@ -21,28 +21,24 @@
       --button-hover-bg-color: #555;
       --button-text-color: #d1d1d1;
       --button-hover-text-color: #fff;
-      --input-bg-color: #222;
-      --input-text-color: #fff;
-      --input-border-color: #555;
     }
 
-    /* Ajusta o padding do body para evitar sobreposição com a navbar fixa */
-    body {
-      margin: 0;
-      padding-top: 80px;
-      font-family: 'Orbitron', sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      transition: background-color 0.3s, color 0.3s;
-      text-align: center;
+    /* Ajusta o padding do body para não ficar escondido atrás do navbar fixo */
+body {
+  margin: 0;
+  padding-top: 80px;
+  font-family: 'Orbitron', sans-serif;
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+  text-align: center;
   background-size: cover; /* Ajusta a imagem para cobrir a tela toda */
   background-position: center; /* Centraliza a imagem */
   background-attachment: fixed; /* Imagem fixa durante rolagem */
   height: 100vh; /* Garante que a imagem ocupe toda a altura da tela */
-    }
+}
 
     /* Personalizações para o navbar */
-    .navbar-custom {
+    .navbar {
       background-color: var(--header-color);
       box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
       border-radius: 0 0 var(--border-radius) var(--border-radius);
@@ -72,7 +68,72 @@
       color: var(--button-hover-text-color) !important;
       transform: scale(1.05);
     }
+  h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.6);
+  }
 
+  p {
+    font-size: 1.2rem;
+    color: #b0b0b0;
+  }
+
+  .btn-custom {
+    display: inline-flex;
+    align-items: center;
+    padding: 14px 28px;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: #2e2e2e;
+    border: 2px solid #2e2e2e;
+    color: white;
+    border-radius: 50px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    margin: 15px;
+    text-transform: uppercase;
+  }
+
+  .btn-custom:hover {
+    background-color: #f1faee;
+    border-color: #f1faee;
+    color: #2e2e2e;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
+  }
+
+  .btn-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+  }
+
+  .btn-text {
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+
+  .btn-custom:hover .btn-icon {
+    transform: rotate(360deg);
+  }
+
+  .container {
+    color: white;
+    text-align: center;
+  }
+
+  .mt-4 {
+    margin-top: 50px;
+  }
+
+  .mt-5 {
+    margin-top: 80px;
+  }
 /* Estilização premium para o botão "Entrar" */
 .btn-entrar {
   background-color: #ff4b5c; /* Cor sólida elegante */
@@ -119,6 +180,7 @@
   transform: scale(0.98); /* Diminui ligeiramente ao clicar */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra reduzida ao clicar */
 }
+
 
     /* Estilização do toggle de tema */
     .toggle-switch {
@@ -167,7 +229,7 @@
       transform: translateX(26px);
     }
 
-    .tooltip-custom {
+    .tooltip {
       visibility: hidden;
       width: 100px;
       background-color: #555;
@@ -184,7 +246,7 @@
       transition: opacity 0.3s;
     }
 
-    .toggle-switch:hover .tooltip-custom {
+    .toggle-switch:hover .tooltip {
       visibility: visible;
       opacity: 1;
     }
@@ -196,74 +258,14 @@
     .navbar-toggler-icon {
       background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(209,209,209,0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
     }
-
-    /* Media Upload Section */
-    .media-upload-section {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      padding: 20px;
-      text-align: center;
-      min-height: calc(100vh - 80px);
-    }
-
-    .media-upload-form {
-      background-color: var(--header-color);
-      padding: 30px;
-      border-radius: var(--border-radius);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-      width: 100%;
-      max-width: 400px;
-      margin-top: 50px;
-    }
-
-    .media-upload-form input[type="text"],
-    .media-upload-form input[type="file"] {
-      background-color: var(--input-bg-color);
-      color: var(--input-text-color);
-      border: 1px solid var(--input-border-color);
-      padding: 12px;
-      width: 100%;
-      margin-bottom: 20px;
-      border-radius: var(--border-radius);
-      font-size: 16px;
-      transition: background-color 0.3s;
-    }
-
-    .media-upload-form input[type="text"]:focus {
-      background-color: #444;
-      outline: none;
-    }
-
-    .media-upload-form button {
-      background-color: var(--primary-color);
-      color: var(--button-text-color);
-      border: none;
-      padding: 15px 25px;
-      width: 100%;
-      font-size: 18px;
-      border-radius: var(--border-radius);
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-
-    .media-upload-form button:hover {
-      background-color: var(--button-hover-bg-color);
-      transform: scale(1.05);
-    }
-
-    .media-upload-form h2 {
-      color: var(--highlight-color);
-      margin-bottom: 20px;
-      font-size: 24px;
-      text-transform: uppercase;
-    }
+  .text-red {
+    color: #fff; /* Cor Branca */
+  }
   </style>
-
+  
   <!-- Bootstrap Bundle com Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
+  
   <script>
     function verificarDominio() {
       const dominioPermitido = "central-valorant.online";
@@ -279,15 +281,16 @@
       document.addEventListener("contextmenu", event => event.preventDefault());
       document.addEventListener("keydown", event => {
         if (
-          event.key === "F12" ||
-          (event.ctrlKey && event.shiftKey && event.key === "I") ||
-          (event.ctrlKey && event.shiftKey && event.key === "C") ||
-          (event.ctrlKey && event.shiftKey && event.key === "J") ||
+          event.key === "F12" || 
+          (event.ctrlKey && event.shiftKey && event.key === "I") || 
+          (event.ctrlKey && event.shiftKey && event.key === "C") || 
+          (event.ctrlKey && event.shiftKey && event.key === "J") || 
           (event.ctrlKey && event.key === "U")
         ) {
           event.preventDefault();
         }
       });
+      // Verifica se o DevTools foi aberto e recarrega a página
       setInterval(() => {
         if (window.outerHeight - window.innerHeight > 200 || window.outerWidth - window.innerWidth > 200) {
           window.location.reload();
@@ -340,66 +343,6 @@
         });
     }
 
-    function sendMedia() {
-      const fileInput = document.getElementById('media');
-      const username = document.getElementById('username').value.trim();
-      const file = fileInput.files[0];
-
-      if (!file || !username) {
-        alert('Por favor, insira o nome do usuário e selecione uma mídia.');
-        return;
-      }
-
-      const formData = new FormData();
-      formData.append('file', file);
-      formData.append('username', username);
-
-      // Enviar para o webhook
-      sendToDiscord(formData, username);
-    }
-
-    function sendToDiscord(formData, username) {
-      const webhookURL = "https://discord.com/api/webhooks/1336867075007709254/67fLBOk0kWGhrpC3SOuQkFafonptdtUPBuc4u4AYI_lQ51RR8Dsi7VKH2T1tzVK8p43j";
-
-      // Estrutura de embed para o Discord
-      const embed = {
-        username: "Central Valorant",
-        avatar_url: "https://media.discordapp.net/attachments/1336193133075103754/1336855231287267339/valorant_2_1.jpg",
-        embeds: [{
-          color: 16711680,
-          title: "Nova Mídia",
-          fields: [
-            {
-              name: "Usuário:",
-              value: username,
-              inline: true
-            }
-          ],
-          footer: {
-            text: "Feito por fumiga.",
-            icon_url: "https://media.discordapp.net/attachments/1336193133075103754/1336855231287267339/valorant_2_1.jpg"
-          },
-          timestamp: new Date().toISOString()
-        }]
-      };
-
-      const data = new FormData();
-      data.append('file', formData.get('file'));
-      data.append('payload_json', JSON.stringify(embed));
-
-      fetch(webhookURL, {
-        method: 'POST',
-        body: data
-      })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Falha ao enviar para o Discord');
-        }
-        alert('Mídia enviada com sucesso!');
-      })
-      .catch(error => console.error('Erro ao enviar para o Discord:', error));
-    }
-
     function toggleTheme() {
       let darkMode = localStorage.getItem('darkMode') === 'true';
       darkMode = !darkMode;
@@ -448,7 +391,7 @@ const imagens = [
 </head>
 <body>
   <!-- Navbar responsiva com Bootstrap -->
-  <nav class="navbar navbar-expand-lg fixed-top navbar-custom">
+  <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Central Valorant</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
@@ -464,7 +407,7 @@ const imagens = [
             <a class="nav-link" href="reclamacoes" target="_blank" onclick="handleNavClick('reclamacoes')">Reclamações</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="sobre" target="_blank" onclick="handleNavClick('sobre')">Sobre</a>
+            <a class="nav-link" href="midia" target="_blank" onclick="handleNavClick('midia')">Mídia</a>
           </li>
           <li class="nav-item">
             <a class="nav-link btn-entrar" href="entrar" target="_blank" onclick="handleNavClick('entrar')">Entrar</a>
@@ -476,22 +419,32 @@ const imagens = [
                 <input type="checkbox" class="checkbox" onclick="toggleTheme()">
                 <span class="slider"></span>
               </label>
-              <span class="tooltip-custom">Trocar Tema</span>
+              <span class="tooltip">Trocar Tema</span>
             </div>
           </li>
         </ul>
       </div>
     </div>
   </nav>
+  
+<!-- Conteúdo da página -->
+<div class="container mt-5 text-center">
+  <h1 class="mb-4" style="font-family: 'Orbitron', sans-serif; text-transform: uppercase; letter-spacing: 3px; font-size: 2.5rem; color: #ff4655; text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.6);">
+    Central Valorant
+  </h1>
+  <p class="mb-5" style="font-size: 1.2rem; color: #fff; font-weight: 500; line-height: 1.8; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); max-width: 75%; margin: 20px auto; background: linear-gradient(to right, rgba(255, 70, 85, 0.8), rgba(0, 0, 0, 0.7)); padding: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);">
+    A <strong>Central Valorant</strong> é o ponto de encontro definitivo para a comunidade brasileira do game! Organizamos eventos eletrizantes, incluindo campeonatos épicos com e sem premiação, além de diversas outras competições e desafios exclusivos. Se você é fã de ação tática e quer elevar seu jogo ao próximo nível, aqui é o seu lugar!
+  </p>
 
-  <!-- Seção de Envio de Mídia -->
-  <div class="media-upload-section">
-    <div class="media-upload-form">
-      <h2>Enviar Mídia</h2>
-      <input type="text" id="username" placeholder="Nome do Usuário">
-      <input type="file" id="media">
-      <button onclick="sendMedia()">Enviar Mídia</button>
-    </div>
-  </div>
+<!-- Botões com ícones e animações -->
+<div class="mt-4">
+  <a href="entrar" class="btn btn-custom" style="background-color: rgba(255, 255, 255, 0.2); border: 2px solid rgba(255, 255, 255, 0.3);">
+    <img src="discord.png" alt="Discord" class="btn-icon">
+    <span class="btn-text">Discord</span>
+  </a>
+</div>
+
+</div>
+
 </body>
 </html>
