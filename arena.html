@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, max-scale=1.0">
     <title>Central Valorant</title>
     <link rel="icon" href="valorant.png">
     <style>
@@ -19,18 +19,15 @@
             --button-hover-text-color: #fff;
         }
 
-body {
-    margin: 0;
-    font-family: 'Orbitron', sans-serif;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    padding: var(--padding, 30px);
-    max-width: var(--max-width, 80%);
-    margin: auto;
-    text-align: center;
-    transition: background-color 0.3s, color 0.3s;
-    font-size: var(--font-size, 18px);
-}
+        body {
+            margin: 0;
+            font-family: 'Orbitron', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            padding: 0;
+            text-align: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
 
         .container {
             width: 100%;
@@ -149,22 +146,6 @@ body {
         }
     </style>
     <script>
-
- function ajustarLayout() {
-            let largura = window.innerWidth;
-            let body = document.body;
-
-            if (largura < 600) {
-                body.style.cssText = "font-size: 14px; padding: 10px; max-width: 100%;";
-            } else if (largura < 1024) {
-                body.style.cssText = "font-size: 16px; padding: 20px; max-width: 90%; margin: auto;";
-            } else {
-                body.style.cssText = "font-size: 18px; padding: 30px; max-width: 80%; margin: auto;";
-            }
-        }
-
-        window.addEventListener("resize", ajustarLayout);
-        window.addEventListener("load", ajustarLayout);
 
  function verificarDominio() {
     const dominioPermitido = "central-valorant.netlify.app";
