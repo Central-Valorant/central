@@ -69,6 +69,19 @@
       transform: scale(1.05);
     }
 
+    /* Estilização específica para o botão "Entrar" */
+    .btn-entrar {
+      background-color: var(--primary-color) !important;
+      color: #fff !important;
+      font-weight: bold;
+      border: 2px solid #fff;
+    }
+
+    .btn-entrar:hover {
+      background-color: #e63337 !important; /* tom levemente mais escuro */
+      transform: scale(1.05);
+    }
+
     /* Estilização do toggle de tema */
     .toggle-switch {
       position: relative;
@@ -395,7 +408,7 @@
             <a class="nav-link" href="sobre" target="_blank" onclick="handleNavClick('sobre')">Sobre</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="entrar" target="_blank" onclick="handleNavClick('entrar')">Entrar</a>
+            <a class="nav-link btn-entrar" href="entrar" target="_blank" onclick="handleNavClick('entrar')">Entrar</a>
           </li>
           <!-- Toggle de tema -->
           <li class="nav-item d-flex align-items-center">
