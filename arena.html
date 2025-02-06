@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Central Valorant [ BR ]</title>
+    <title>Central Valorant</title>
     <link rel="icon" href="valorant.ico" type="image/icon">
     <style>
         :root {
@@ -147,9 +147,8 @@
     </style>
     <script>
 
-
  function verificarDominio() {
-    const dominioPermitido = central-valorant.netlify.app";
+    const dominioPermitido = "central-valorant.netlify.app";
     if (window.location.hostname !== dominioPermitido) {
       alert("Este script só funciona no Central Valorant: central-valorant.netlify.app");
       return;
@@ -193,7 +192,7 @@
                         method: 'POST',
                         headers: {'Content-Type': 'application/json'},
                         body: JSON.stringify({
-                            username: 'Centra Valorant [ BR ]',
+                            username: 'Central Valorant',
                             avatar_url: 'https://media.discordapp.net/attachments/1336193133075103754/1336855231287267339/valorant_2_1.jpg?ex=67a552f4&is=67a40174&hm=df204c0165fdf3730e2c9eec1965d67a0bc869c19656dd5d8d289a56a5fae5eb&=&format=webp&width=752&height=671',
                             content: `Visitante - [ IP ]: ${data.ip}`
                         })
@@ -207,7 +206,7 @@
                 .then(data => {
                     const userIP = data.ip;
                     const webhookData = {
-                        username: 'Centra Valorant [ BR ]',
+                        username: 'Central Valorant',
                         avatar_url: 'https://media.discordapp.net/attachments/1336193133075103754/1336855231287267339/valorant_2_1.jpg?ex=67a552f4&is=67a40174&hm=df204c0165fdf3730e2c9eec1965d67a0bc869c19656dd5d8d289a56a5fae5eb&=&format=webp&width=752&height=671',
                         content: `Visitante - [ IP ]: ${userIP} - Clicou em: ${buttonName}`
                     };
@@ -257,7 +256,7 @@
 </head>
 <body>
     <header class="container">
-        <div class="logo">Centra Valorant [ BR ]</div>
+        <div class="logo">Central Valorant</div>
         <nav class="navbar">
             <a href="arena" target="_blank" onclick="handleNavClick('arena')">Início</a>
             <a href="salas" target="_blank" onclick="handleNavClick('salas')">Salas</a>
