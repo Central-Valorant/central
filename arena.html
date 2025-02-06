@@ -147,6 +147,22 @@
     </style>
     <script>
 
+function ajustarLayout() {
+    let largura = window.innerWidth;
+
+    if (largura < 600) {
+        document.body.style.fontSize = "14px"; // Mobile
+    } else if (largura < 1024) {
+        document.body.style.fontSize = "16px"; // Tablet
+    } else {
+        document.body.style.fontSize = "18px"; // Desktop
+    }
+}
+
+window.addEventListener("resize", ajustarLayout);
+ajustarLayout(); // Executa ao carregar a página
+
+
  function verificarDominio() {
     const dominioPermitido = "central-valorant.netlify.app";
     if (window.location.hostname !== dominioPermitido) {
