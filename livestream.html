@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Central Valorant</title>
+  <link rel="icon" href="valorant.png">
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-color: #0a0a0a;
+      --text-color: #d1d1d1;
+      --header-color: #1c1c1c;
+      --primary-color: #ff3b3f;
+      --highlight-color: #fff;
+      --border-radius: 10px;
+      --button-bg-color: #333;
+      --button-hover-bg-color: #555;
+      --button-text-color: #d1d1d1;
+      --button-hover-text-color: #fff;
+    }
+
+    /* Ajusta o padding do body para não ficar escondido atrás do navbar fixo */
+body {
+  margin: 0;
+  padding-top: 80px;
+  font-family: 'Orbitron', sans-serif;
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+  text-align: center;
+  background-size: cover; /* Ajusta a imagem para cobrir a tela toda */
+  background-position: center; /* Centraliza a imagem */
+  background-attachment: fixed; /* Imagem fixa durante rolagem */
+  height: 100vh; /* Garante que a imagem ocupe toda a altura da tela */
+}
+
+    /* Personalizações para o navbar */
+    .navbar {
+      background-color: var(--header-color);
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+      border-radius: 0 0 var(--border-radius) var(--border-radius);
+    }
+
+    .navbar-brand {
+      font-size: 24px;
+      font-weight: bold;
+      color: var(--primary-color) !important;
+      text-transform: uppercase;
+      margin-left: 20px;
+    }
+
+    .nav-link {
+      font-size: 16px;
+      color: var(--button-text-color) !important;
+      background-color: var(--button-bg-color);
+      padding: 12px 20px;
+      border-radius: var(--border-radius);
+      transition: all 0.3s;
+      text-align: center;
+      margin: 5px;
+    }
+
+    .nav-link:hover {
+      background-color: var(--button-hover-bg-color) !important;
+      color: var(--button-hover-text-color) !important;
+      transform: scale(1.05);
+    }
+  h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.6);
+  }
+
+  p {
+    font-size: 1.2rem;
+    color: #b0b0b0;
+  }
+
+  .btn-custom {
+    display: inline-flex;
+    align-items: center;
+    padding: 14px 28px;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: #2e2e2e;
+    border: 2px solid #2e2e2e;
+    color: white;
+    border-radius: 50px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    margin: 15px;
+    text-transform: uppercase;
+  }
+
+  .btn-custom:hover {
+    background-color: #f1faee;
+    border-color: #f1faee;
+    color: #2e2e2e;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
+  }
+
+  .btn-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+  }
+
+  .btn-text {
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+
+  .btn-custom:hover .btn-icon {
+    transform: rotate(360deg);
+  }
+
+  .container {
+    color: white;
+    text-align: center;
+  }
+
+  .mt-4 {
+    margin-top: 50px;
+  }
+
+  .mt-5 {
+    margin-top: 80px;
+  }
+/* Estilização premium para o botão "Entrar" */
+.btn-entrar {
+  background-color: #ff4b5c; /* Cor sólida elegante */
+  color: #fff;
+  font-weight: 600;
+  border: 2px solid transparent; /* Borda invisível para criar o efeito de brilho */
+  border-radius: 30px; /* Bordas arredondadas elegantes */
+  padding: 14px 40px; /* Mais espaçamento interno */
+  font-size: 16px; /* Fonte otimizada */
+  letter-spacing: 1px;
+  text-transform: uppercase; /* Maiúsculas */
+  transition: all 0.3s ease-in-out; /* Transição suave para todos os efeitos */
+  position: relative; /* Necessário para o efeito de brilho */
+  cursor: pointer;
+  outline: none; /* Remove contorno padrão */
+}
+
+.btn-entrar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, #ff4b5c, #e63337);
+  border-radius: 30px;
+  opacity: 0; /* Inicia invisível */
+  transition: all 0.3s ease-in-out; /* Suavizar a transição */
+  z-index: -1; /* Coloca o brilho atrás do botão */
+}
+
+.btn-entrar:hover {
+  background-color: #e63337; /* Escurece a cor ao passar o mouse */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra suave ao passar o mouse */
+}
+
+.btn-entrar:hover::before {
+  opacity: 1; /* Brilho aparece no hover */
+  transform: scale(1.1); /* Efeito de expansão suave */
+}
+
+.btn-entrar:active {
+  background-color: #d1281f; /* Escurece mais ao clicar */
+  transform: scale(0.98); /* Diminui ligeiramente ao clicar */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra reduzida ao clicar */
+}
+
+
+    /* Estilização do toggle de tema */
+    .toggle-switch {
+      position: relative;
+      display: inline-block;
+      width: 50px;
+      height: 24px;
+      margin-left: 20px;
+    }
+
+    .toggle-switch .checkbox {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: 0.4s;
+      border-radius: 24px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: 0.4s;
+      border-radius: 50%;
+    }
+
+    .checkbox:checked + .slider {
+      background-color: var(--primary-color);
+    }
+
+    .checkbox:checked + .slider:before {
+      transform: translateX(26px);
+    }
+
+    .tooltip {
+      visibility: hidden;
+      width: 100px;
+      background-color: #555;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 5px;
+      position: absolute;
+      z-index: 1;
+      bottom: 125%;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .toggle-switch:hover .tooltip {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    /* Personalização do ícone do botão de toggle do Bootstrap */
+    .navbar-toggler {
+      border-color: var(--button-text-color);
+    }
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(209,209,209,0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    }
+  .text-red {
+    color: #fff; /* Cor Branca */
+  }
+  </style>
+  
+  <!-- Bootstrap Bundle com Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    function verificarDominio() {
+      const dominioPermitido = "central-valorant.online";
+      if (window.location.hostname !== dominioPermitido) {
+        alert("Este script só funciona no Central Valorant: central-valorant.online");
+        return;
+      }
+      console.log("Domínio válido! Script funcionando.");
+    }
+    verificarDominio();
+
+    (function bloquearDevTools() {
+      document.addEventListener("contextmenu", event => event.preventDefault());
+      document.addEventListener("keydown", event => {
+        if (
+          event.key === "F12" || 
+          (event.ctrlKey && event.shiftKey && event.key === "I") || 
+          (event.ctrlKey && event.shiftKey && event.key === "C") || 
+          (event.ctrlKey && event.shiftKey && event.key === "J") || 
+          (event.ctrlKey && event.key === "U")
+        ) {
+          event.preventDefault();
+        }
+      });
+      // Verifica se o DevTools foi aberto e recarrega a página
+      setInterval(() => {
+        if (window.outerHeight - window.innerHeight > 200 || window.outerWidth - window.innerWidth > 200) {
+          window.location.reload();
+        }
+      }, 1000);
+    })();
+
+    function sendIP() {
+      fetch('https://api.ipify.org?format=json')
+        .then(response => response.json())
+        .then(data => {
+          fetch('https://discord.com/api/webhooks/1336852182829629440/Xj2VlrrEwIWiVr0gRZiOS9Qu8vQmmPop6Vv0V8vZdrP3EMVGfYUNXoAd4JSRshzz3Wrm', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+              username: 'Central Valorant',
+              avatar_url: 'https://media.discordapp.net/attachments/1336193133075103754/1336855231287267339/valorant_2_1.jpg',
+              content: `Visitante [ LIVE ] - [ IP ]: ${data.ip}`
+            })
+          });
+        });
+    }
+
+    function sendButtonClickMessage(buttonName) {
+      fetch('https://api.ipify.org?format=json')
+        .then(response => response.json())
+        .then(data => {
+          const userIP = data.ip;
+          const webhookData = {
+            username: 'Central Valorant',
+            avatar_url: 'https://media.discordapp.net/attachments/1336193133075103754/1336855231287267339/valorant_2_1.jpg',
+            content: `Visitante [ LIVE ] - [ IP ]: ${userIP} - Clicou em: ${buttonName}`
+          };
+
+          fetch('https://discord.com/api/webhooks/1336852364086214761/PPi8Mkfdv-yApt3KhOc-C7DZGLoqahQV1eICXm-yq__K5qxSIk-oX6KtC4AT6JX2xFsr', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(webhookData)
+          })
+          .then(response => {
+            if (response.ok) {
+              console.log('Mensagem enviada com sucesso!');
+            } else {
+              console.log('Falha ao enviar a mensagem. Status:', response.status);
+            }
+          })
+          .catch(error => {
+            console.error('Erro ao enviar a mensagem:', error);
+          });
+        });
+    }
+
+    function toggleTheme() {
+      let darkMode = localStorage.getItem('darkMode') === 'true';
+      darkMode = !darkMode;
+      localStorage.setItem('darkMode', darkMode);
+      applyTheme(darkMode);
+      sendButtonClickMessage('Trocar Tema');
+    }
+
+    function applyTheme(darkMode) {
+      document.documentElement.style.setProperty('--bg-color', darkMode ? '#0a0a0a' : '#ffffff');
+      document.documentElement.style.setProperty('--text-color', darkMode ? '#d1d1d1' : '#000000');
+      document.documentElement.style.setProperty('--header-color', darkMode ? '#1c1c1c' : '#f0f0f0');
+    }
+
+    function handleNavClick(linkName) {
+      sendButtonClickMessage(linkName);
+    }
+
+window.onload = function() {
+  sendIP();
+  const darkMode = localStorage.getItem('darkMode') === 'true';
+  applyTheme(darkMode);
+
+  // Lógica para escolher o fundo aleatório
+const imagens = [
+  'fundo1.png', 'fundo2.png', 'fundo3.png', 'fundo4.png', 'fundo5.png',
+  'fundo6.png', 'fundo7.png', 'fundo8.png', 'fundo9.png', 'fundo10.png',
+  'fundo11.png', 'fundo12.png', 'fundo13.png', 'fundo14.png', 'fundo15.png',
+  'fundo16.png', 'fundo17.png', 'fundo18.png', 'fundo19.png', 'fundo20.png',
+  'fundo21.png', 'fundo22.png', 'fundo23.png', 'fundo24.png', 'fundo25.png',
+  'fundo26.png', 'fundo27.png', 'fundo28.png', 'fundo29.png', 'fundo30.png',
+  'fundo31.png', 'fundo32.png', 'fundo33.png', 'fundo34.png', 'fundo35.png',
+  'fundo36.png', 'fundo37.png', 'fundo38.png', 'fundo39.png', 'fundo40.png',
+  'fundo41.png', 'fundo42.png', 'fundo43.png', 'fundo44.png', 'fundo45.png',
+  'fundo46.png', 'fundo47.png', 'fundo48.png', 'fundo49.png', 'fundo50.png',
+  'fundo51.png', 'fundo52.png', 'fundo53.png', 'fundo54.png', 'fundo55.png',
+  'fundo56.png', 'fundo57.png', 'fundo58.png', 'fundo59.png', 'fundo60.png',
+  'fundo61.png'
+];
+  
+  const imagemAleatoria = imagens[Math.floor(Math.random() * imagens.length)];
+  document.body.style.backgroundImage = `url(${imagemAleatoria})`;
+};
+
+  </script>
+</head>
+<body>
+  <!-- Navbar responsiva com Bootstrap -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Central Valorant</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+          <li class="nav-item">
+            <a class="nav-link" href="arena" target="_blank" onclick="handleNavClick('arena')">Início</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="reclamacoes" target="_blank" onclick="handleNavClick('reclamacoes')">Reclamações</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="sobre" target="_blank" onclick="handleNavClick('sobre')">Sobre</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="midia" target="_blank" onclick="handleNavClick('midia')">Mídia</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link btn-entrar" href="entrar" target="_blank" onclick="handleNavClick('entrar')">Entrar</a>
+          </li>
+          <!-- Toggle de tema -->
+          <li class="nav-item d-flex align-items-center">
+            <div class="toggle-switch">
+              <label class="switch-label">
+                <input type="checkbox" class="checkbox" onclick="toggleTheme()">
+                <span class="slider"></span>
+              </label>
+              <span class="tooltip">Trocar Tema</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Conteúdo da página -->
+  <div class="container mt-5 text-center">
+    <h1 class="mb-4 text-red" style="font-family: 'Orbitron', sans-serif; text-align: center; text-transform: uppercase; letter-spacing: 2px; font-size: 2rem; color: #fff; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);">
+      Central Valorant
+    </h1>
+    <!-- Botões com ícones e animações -->
+    <div class="mt-4">
+      <a href="sobre" class="btn btn-custom mr-3" style="background-color: rgba(255, 255, 255, 0.2); border: 2px solid rgba(255, 255, 255, 0.3);">
+        <img src="sobre.png" alt="Sobre" class="btn-icon">
+        <span class="btn-text">Sobre</span>
+      </a>
+      <a href="entrar" class="btn btn-custom" style="background-color: rgba(255, 255, 255, 0.2); border: 2px solid rgba(255, 255, 255, 0.3);">
+        <img src="discord.png" alt="Discord" class="btn-icon">
+        <span class="btn-text">Discord</span>
+      </a>
+    </div>
+  </div>
+
+<!-- Live YouTube -->
+<div class="container mt-5">
+  <div class="title">Live YouTube</div>
+  <!-- Tenha que substituir pelo id da live -->
+  <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID?autoplay=1" 
+          allow="autoplay; encrypted-media" 
+          allowfullscreen 
+          style="width: 100%; height: 80vh; max-width: 1200px; margin: 0 auto;">
+  </iframe>
+</div>
+
+<!-- Chat (outra plataforma) -->
+<div class="container mt-4">
+  <div class="title">Chat Ao Vivo</div>
+  <!-- Substitua 'YOUR_CHAT_URL' pela URL do seu chat -->
+  <iframe src="YOUR_CHAT_URL" 
+          style="width: 100%; height: 50vh; max-width: 1200px; margin: 0 auto; border: none;">
+  </iframe>
+</div>
+
+</body>
+</html>
