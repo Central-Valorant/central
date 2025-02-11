@@ -432,26 +432,46 @@ const imagens = [
   
 <!-- Conteúdo da página -->
 <div class="container mt-5 text-center">
-<h1 class="mb-4 text-red" style="font-family: 'Orbitron', sans-serif; text-align: center; text-transform: uppercase; letter-spacing: 2px; font-size: 2rem; color: #fff; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);">
-  Central Valorant
-</h1>
-<p class="mb-5 text-red" style="font-size: 1.1rem; color: #fff; font-weight: 400; text-align: center; line-height: 1.8; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); max-width: 70%; margin: 20px auto; background: rgba(51, 51, 51, 0.85); padding: 15px 20px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);">
-  Bem-vindo ao site do Central Valorant, onde a arena ferve e os campeões se preparam para conquistar o título!
-</p>
+  <h1 class="mb-4 text-red" style="font-family: 'Orbitron', sans-serif; text-align: center; text-transform: uppercase; letter-spacing: 2px; font-size: 2rem; color: #fff; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);">
+    Central Valorant
+  </h1>
+  <p class="mb-5 text-red" style="font-size: 1.1rem; color: #fff; font-weight: 400; text-align: center; line-height: 1.8; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); max-width: 70%; margin: 20px auto; background: rgba(51, 51, 51, 0.85); padding: 15px 20px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);">
+    Bem-vindo ao site do Central Valorant, onde a arena ferve e os campeões se preparam para conquistar o título!
+  </p>
+
+  <!-- Widget Discord com pessoas online -->
+  <div class="mt-5" style="background-color: rgba(51, 51, 51, 0.85); padding: 10px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3); max-width: 360px; margin: 0 auto;">
+    <!-- Widget Discord - compact version -->
+    <iframe src="https://discord.com/widget?id=1336848289168887808&theme=dark&compact=true" width="210" height="180" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+  </div>
+</div>
 
 <!-- Botões com ícones e animações -->
-<div class="mt-4">
-  <a href="sobre" class="btn btn-custom mr-3" style="background-color: rgba(255, 255, 255, 0.2); border: 2px solid rgba(255, 255, 255, 0.3);">
-    <img src="sobre.png" alt="Sobre" class="btn-icon">
-    <span class="btn-text">Sobre</span>
+<div class="mt-4 d-flex justify-content-center gap-3">
+  <a href="sobre" class="btn btn-custom" style="background-color: rgba(255, 255, 255, 0.1); border: 2px solid rgba(255, 255, 255, 0.2); padding: 12px 20px; border-radius: 8px; display: flex; align-items: center; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3); transition: all 0.3s ease;">
+    <img src="sobre.png" alt="Sobre" class="btn-icon" style="width: 24px; margin-right: 10px;">
+    <span class="btn-text" style="color: #fff;">Sobre</span>
   </a>
-  <a href="entrar" class="btn btn-custom" style="background-color: rgba(255, 255, 255, 0.2); border: 2px solid rgba(255, 255, 255, 0.3);">
-    <img src="discord.png" alt="Discord" class="btn-icon">
-    <span class="btn-text">Discord</span>
+  <a href="entrar" class="btn btn-custom" style="background-color: rgba(255, 255, 255, 0.1); border: 2px solid rgba(255, 255, 255, 0.2); padding: 12px 20px; border-radius: 8px; display: flex; align-items: center; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3); transition: all 0.3s ease;">
+    <img src="discord.png" alt="Discord" class="btn-icon" style="width: 24px; margin-right: 10px;">
+    <span class="btn-text" style="color: #fff;">Discord</span>
   </a>
 </div>
 
-</div>
+<!-- Estilos adicionais -->
+<style>
+  .btn-custom:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-5px);
+  }
+  .btn-icon {
+    width: 28px;
+  }
+  iframe {
+    border-radius: 8px;
+    overflow: hidden;
+  }
+</style>
 
 </body>
 </html>
